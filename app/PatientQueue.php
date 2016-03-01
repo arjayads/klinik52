@@ -1,31 +1,38 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: gwdev1
+ * Date: 10/30/15
+ * Time: 5:33 AM
+ */
 
-namespace ManageMe;
+namespace ManageMe\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
-{
+use Illuminate\Database\Eloquent\Model;
+
+class PatientQueue extends Model {
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'User';
+    protected $table = 'PatientQueue';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['isActive', 'email', 'password'];
+    protected $fillable = ['FK_patientId'];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = [];
 
 
     /**
