@@ -37,7 +37,7 @@ var hideMessage = function() {
 }
 
 var showErrorMessage = function(message) {
-    $('.alert-danger').removeClass('hidden');
+    $('.alert-danger').css('display', 'inherit').removeClass('hidden');
     $('.alert-info').addClass('hidden');
 
     $('.alert .danger').text(message);
@@ -45,7 +45,7 @@ var showErrorMessage = function(message) {
 }
 
 var showInfoMessage = function(message) {
-    $('.alert-info').removeClass('hidden');
+    $('.alert-info').css('display', 'inherit').removeClass('hidden');
     $('.alert-danger').addClass('hidden');
 
     $('.alert-info .info').text(message);
@@ -57,6 +57,8 @@ var dateToMills = function(input) {
 }
 
 var closeAlert = function(div) {
-    div.addClass('hidden');
-    div.children('span').text('');
+    div.fadeOut(500, function(){
+        div.addClass('hidden');
+        div.children('span').text('');
+    });
 }
