@@ -97,7 +97,7 @@ managePatientApp.controller('mainCtrl', ['$scope', '$http', function ($scope, $h
         $http.get(searchUrl).success(function(data) {
             $scope.gridOptions1.data = data;
         }).error(function() {
-            toastr.error('Something went wrong!');
+            showErrorMessage('Internal server error');
         });
     };
 }]);
@@ -123,7 +123,7 @@ managePatientApp.controller('editCtrl', ['$scope', '$http', function ($scope, $h
                 $scope.patient.birthDate = $.datepicker.formatDate('mm/dd/yy', new Date(data.birthDate));
                 setDatePickerVal($scope.patient.birthDate);
             }).error(function() {
-                toastr.error('Something went wrong!');
+                showErrorMessage('Internal server error');
             });
         } else {
             $scope.caption = "Add patient";
@@ -142,7 +142,7 @@ managePatientApp.controller('editCtrl', ['$scope', '$http', function ($scope, $h
 
         $http.post($scope.url, $scope.patient).success(function(data) {
             if (!data.error) {
-                toastr.success('Patient successfully saved');
+                showInfoMessage('Patient record successfully saved');
                 $scope.caption ='Saved';
                 setTimeout(function(){
                     window.location = '/patient/' + data.entityId + '/detail';
@@ -154,8 +154,9 @@ managePatientApp.controller('editCtrl', ['$scope', '$http', function ($scope, $h
         }).error(function(data, a) {
             if (a == '422') {
                 $scope.errors = buildFormErrors($scope.errors, data);
+            } else {
+                showErrorMessage('Internal server error');
             }
-            toastr.error('Something went wrong!');
             $scope.submitting = false;
             $scope.caption = prevCap;
         });

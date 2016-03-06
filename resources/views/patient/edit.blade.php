@@ -3,7 +3,7 @@
 @section('title', isset($patientId) ? 'Edit' : "New")
 
 @section('content')
-    <div ng-app="managePatient">
+    <div class="container" ng-app="managePatient">
         <div ng-controller="editCtrl">
             <div>
                 <h2 ng-cloak><% title %></h2>
@@ -238,8 +238,7 @@
     </div>
 @stop
 
-
-@section('javascript')
+@section('js')
     <script type="text/javascript" src="/js/app/directives/form-error.js"></script>
     <script type="text/javascript" src="/js/app/modules/manage-patient.js"></script>
     <script type="text/javascript" src="/js/ui-grid/ui-grid.min.js"></script>
