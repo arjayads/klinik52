@@ -4,6 +4,7 @@ namespace ManageMe\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
 use ManageMe\Http\Requests;
 use ManageMe\Models\Patient;
@@ -112,18 +113,22 @@ class PatientController extends Controller
     }
 
     function queue($id) {
+        try {
+            $p = Patient::find($id);
 
-        $p = Patient::find($id);
-
-        if ($p) {
-            $result = PatientQueue::create(['FK_patientId' => $p->id]);
-            if($result) {
-                return ['error' => false, 'message' => 'Patient successfully queued.', 'entityId' => $result->id];
+            if ($p) {
+                $result = PatientQueue::create(['FK_patientId' => $p->id]);
+                if($result) {
+                    return ['error' => false, 'message' => 'Patient successfully queued.', 'entityId' => $result->id];
+                } else {
+                    return ['error' => true, 'message' => 'Something went wrong.'];
+                }
             } else {
-                return ['error' => true, 'message' => 'Something went wrong.'];
+                return ['error' => true, 'message' => 'Invalid data'];
             }
-        } else {
-            return ['error' => true, 'message' => 'Invalid data'];
+        }catch (\Exception $ex) {
+            Log::error ('PatientController::queue: '.$ex->getMessage());
+            return ['error' => true, 'message' => 'Internal server error'];
         }
     }
 
