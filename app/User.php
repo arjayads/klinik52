@@ -11,14 +11,14 @@ class User extends Authenticatable
      *
      * @var string
      */
-    protected $table = 'User';
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['isActive', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.
