@@ -18,8 +18,7 @@
 <div class="container">
     <div ng-app="dashboard">
         <h2 class="headline">Dashboard</h2>
-        <div class="alert alert-danger hidden"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="alert-span danger"></span></div>
-        <div class="alert alert-info hidden"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="alert-span info"></span></div>
+        @include('includes.message-div')
         <div class="row" ng-controller="queueCtrl">
             <div class="row">
                 <div class="col-md-12">
