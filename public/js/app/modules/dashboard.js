@@ -44,7 +44,6 @@ dashboard.controller('queueCtrl', ['$scope', '$http', function ($scope, $http) {
             if (parseInt(data) > 0) {
                 $scope.queue.splice($scope.deQIndex, 1);
                 $('#confirmDoneModal').modal('hide');
-
                 showInfoMessage('Patient successfully removed from the queue');
             } else {
                 showErrorMessage('Internal server error');

@@ -5,6 +5,9 @@
     }]);
 
 
+    $(document).on('click', '.close', function(e){
+        closeAlert($(this).parent('.alert'));
+    });
 })();
 
 
@@ -30,7 +33,7 @@ var setDatePickerVal = function(v) {
 
 var hideMessage = function() {
     $('.alert').addClass('hidden');
-    $('.alert .alert-span').text('');
+    $('.alert-span').text('');
 }
 
 var showErrorMessage = function(message) {
@@ -51,4 +54,9 @@ var showInfoMessage = function(message) {
 
 var dateToMills = function(input) {
     return new Date(input).getTime();
+}
+
+var closeAlert = function(div) {
+    div.addClass('hidden');
+    div.children('span').text('');
 }
