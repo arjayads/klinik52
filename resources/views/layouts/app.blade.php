@@ -96,7 +96,7 @@
     <script type="text/javascript" src="/js/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/jquery/jquery-ui-1.10.4.min.js"></script>
 
-s   <!-- JS Implementing Plugins -->
+    <!-- JS Implementing Plugins -->
     <script type="text/javascript" src="/js/unify/back-to-top.js"></script>
     <script type="text/javascript" src="/plugins/smoothScroll.js"></script>
 
