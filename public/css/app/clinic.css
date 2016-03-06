@@ -29,3 +29,12 @@ form label {
 .highlight {
     color: #72c02c;
 }
+
+.pad-tb-10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.pad-tb-20 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

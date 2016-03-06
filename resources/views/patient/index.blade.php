@@ -14,7 +14,8 @@
 @stop
 
 @section('content')
-    <div  ng-app="managePatient">
+<div class="container">
+     <div  ng-app="managePatient">
         <div ng-controller="mainCtrl">
             <h2 class="headline">Manage Patients</h2>
             <div class="row">
@@ -28,16 +29,16 @@
                     <a href="/patient/add" class="btn btn-primary pull-right">Add</a>
                 </div>
             </div>
-            <div class="hoz-space"></div>
+            <div class="pad-tb-10"></div>
             <div ui-grid="gridOptions1" ui-grid-pagination class="patient-list"></div>
         </div>
     </div>
+</div>
 @stop
 
 
-@section('javascript')
+@section('js')
     <script type="text/javascript" src="/js/app/directives/form-error.js"></script>
     <script type="text/javascript" src="/js/app/modules/manage-patient.js"></script>
     <script type="text/javascript" src="/js/ui-grid/ui-grid.min.js"></script>
-
 @stop
