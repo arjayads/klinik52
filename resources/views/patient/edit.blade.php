@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', isset($patientId) ? 'Edit' : "New")
+@section('title', isset($patientId) ? 'Edit Patient' : "New Patient")
 
 @section('content')
     <div class="container" ng-app="managePatient">

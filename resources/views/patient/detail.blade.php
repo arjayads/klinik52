@@ -52,7 +52,7 @@
                             <label>Date of Birth</label>
                         </div>
                         <div class="col-md-9">
-                            <span>{{ $patient->birthDate }}</span>
+                            <span>{{ date_format(date_create( $patient->birthDate), 'F d, Y') }}</span>
                         </div>
                     </div>
 
