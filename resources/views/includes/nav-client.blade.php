@@ -1,21 +1,23 @@
-<div class="collapse navbar-collapse" id="app-navbar-collapse">
-<!-- Left Side Of Navbar -->
-<ul class="nav navbar-nav">
-    <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-    <li><a href="{{ url('/patient') }}">Patients</a></li>
-    <li><a href="{{ url('/medicine') }}">Medicines</a></li>
-</ul>
+<div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <!-- Home -->
+            <li>
+                <a class="no-sub-menu" href="/dashboard">Dashboard</a>
+            </li>
+            <!-- End Home -->
 
-<!-- Right Side Of Navbar -->
-<ul class="nav navbar-nav navbar-right">
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-            {{ Auth::user()->name }} <span class="caret"></span>
-        </a>
+            <!-- Patients -->
+            <li>
+                <a class="no-sub-menu" href="/patient">Patients</a>
+            </li>
+            <!-- End Patients -->
 
-        <ul class="dropdown-menu" role="menu">
-            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+            <!-- Medicines -->
+            <li>
+                <a class="no-sub-menu" href="/medicine">Medicines</a>
+            </li>
+            <!-- End Medicines -->
         </ul>
-    </li>
-</ul>
-</div>
+    </div><!--/end container-->
+</div><!--/navbar-collapse-->
