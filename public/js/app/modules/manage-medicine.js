@@ -104,7 +104,7 @@ manageMedicineApp.controller('mainCtrl', ['$scope', '$http', 'uiGridConstants', 
         $http.get(searchUrl).success(function(data) {
             $scope.gridOptions1.data = data;
         }).error(function() {
-            toastr.error('Something went wrong!');
+            showErrorMessage('Internal server error');
         });
     };
 }]);
@@ -128,7 +128,7 @@ manageMedicineApp.controller('editCtrl', ['$scope', '$http', function ($scope, $
             $http.get('/medicine/' + medicineId).success(function(data) {
                 $scope.medicine = data;
             }).error(function() {
-                toastr.error('Something went wrong!');
+                showErrorMessage('Internal server error');
             });
         } else {
             $scope.caption = "Add medicine";
@@ -146,7 +146,7 @@ manageMedicineApp.controller('editCtrl', ['$scope', '$http', function ($scope, $
 
         $http.post($scope.url, $scope.medicine).success(function(data) {
             if (!data.error) {
-                toastr.success('Medicine successfully saved');
+                showInfoMessage('Medicine successfully saved');
                 $scope.caption ='Saved';
                 setTimeout(function(){
                     //window.location = '/patient/' + data.entityId + '/detail';
@@ -159,8 +159,9 @@ manageMedicineApp.controller('editCtrl', ['$scope', '$http', function ($scope, $
         }).error(function(data, a) {
             if (a == '422') {
                 $scope.errors = buildFormErrors($scope.errors, data);
+            } else {
+                showErrorMessage('Internal server error');
             }
-            toastr.error('Something went wrong!');
             $scope.submitting = false;
             $scope.caption = prevCap;
         });

@@ -1,14 +1,15 @@
-@extends('layouts.unify')
+@extends('layouts.app')
 
-@section('title', isset($medicineId) ? 'Edit' : "New")
+@section('title', isset($medicineId) ? 'Edit Medicine' : "New Medicine")
 
 @section('content')
-    <div ng-app="manageMedicine">
+    <div class="container" ng-app="manageMedicine">
         <div ng-controller="editCtrl">
             <div>
                 <h2 ng-cloak><% title %></h2>
             </div>
 
+            @include('includes.message-div')
             <div class="hoz-space"></div>
 
             <form ng-submit="processForm()">
@@ -113,9 +114,6 @@
     </div>
 @stop
 
-
-@section('javascript')
-    <script type="text/javascript" src="/js/app/directives/form-error.js"></script>
-    <script type="text/javascript" src="/js/app/modules/manage-medicine.js"></script>
-    <script type="text/javascript" src="/js/ui-grid/ui-grid.min.js"></script>
+@section('js')
+   @include('medicine.js')
 @stop

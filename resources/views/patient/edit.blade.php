@@ -9,6 +9,7 @@
                 <h2 ng-cloak><% title %></h2>
             </div>
 
+            @include('includes.message-div')
             <div class="hoz-space"></div>
             <div class="tab-v1">
                 <ul class="nav nav-tabs">
