@@ -26,3 +26,29 @@ var setDatePickerVal = function(v) {
     $('.datepicker').datepicker('update');
     $('.datepicker').val('');
 }
+
+
+var hideMessage = function() {
+    $('.alert').addClass('hidden');
+    $('.alert .alert-span').text('');
+}
+
+var showErrorMessage = function(message) {
+    $('.alert-danger').removeClass('hidden');
+    $('.alert-info').addClass('hidden');
+
+    $('.alert .danger').text(message);
+    $('.alert .info').text('');
+}
+
+var showInfoMessage = function(message) {
+    $('.alert-info').removeClass('hidden');
+    $('.alert-danger').addClass('hidden');
+
+    $('.alert-info .info').text(message);
+    $('.alert-danger .danger').text('');
+}
+
+var dateToMills = function(input) {
+    return new Date(input).getTime();
+}

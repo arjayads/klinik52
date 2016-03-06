@@ -1,16 +1,17 @@
 var dashboard = angular.module('dashboard', ['config', 'ngTouch', 'angucomplete-alt']);
 
 dashboard.controller('queueCtrl', ['$scope', '$http', function ($scope, $http) {
+    $scope.message = '';
     $scope.queue = [];
 
     $http.get('/patient/onQueue').success(function(data) {
         $scope.queue = data;
     }).error(function(data, a) {
-        toastr.error('Failed to load queued patients!');
+        showErrorMessage('Internal server error');
     });
 
     $scope.dateToMills = function(input) {
-        return new Date(input).getTime();
+        dateToMills(input);
     }
 
     $scope.remoteUrlRequestFn = function(str) {
@@ -39,12 +40,17 @@ dashboard.controller('queueCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.okDeQ = function() {
         $http.post('/patient/queue/'+$scope.qId+'/remove').success(function(data) {
+
             if (parseInt(data) > 0) {
                 $scope.queue.splice($scope.deQIndex, 1);
                 $('#confirmDoneModal').modal('hide');
+
+                showInfoMessage('Patient successfully removed from the queue');
+            } else {
+                showErrorMessage('Internal server error');
             }
         }).error(function(data, a) {
-            toastr.error('Something went wrong!');
+            showErrorMessage('Internal server error');
         });
     }
 
@@ -59,12 +65,15 @@ dashboard.controller('queueCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.okResetQ = function() {
         $http.post('/patient/resetQueue').success(function(data) {
             if (parseInt(data) > 0) {
-                toastr.success('Queue successfully reset');
                 $scope.queue = [];
                 $('#confirmResetModal').modal('hide');
+
+                showInfoMessage('Patient queue successfully reset');
+            } else {
+                showErrorMessage('Internal server error');
             }
         }).error(function(data, a) {
-            toastr.error('Something went wrong!');
+            showErrorMessage('Internal server error');
         });
     }
 
@@ -76,9 +85,13 @@ dashboard.controller('queueCtrl', ['$scope', '$http', function ($scope, $http) {
         $http.post('/patient/queue/' + patient.id).success(function(data) {
             if (!data.error) {
                 $scope.queue.push({'id': data.entityId, 'patientId': patient.id, 'firstName': patient.firstName, 'lastName': patient.lastName, 'date': new Date()});
+
+                showInfoMessage(patient.firstName + ' ' + patient.lastName + ' has been added to the queue');
             } else {
+                showErrorMessage('Internal server error');
             }
         }).error(function(data, a) {
+            showErrorMessage('Internal server error');
         });
     }
 }]);
