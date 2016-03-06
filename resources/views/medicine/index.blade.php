@@ -1,4 +1,4 @@
-@extends('layouts.unify')
+@extends('layouts.app')
 
 @section('title', 'Medicines')
 
