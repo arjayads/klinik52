@@ -1,9 +1,9 @@
-@extends('layouts.unify')
+@extends('layouts.app')
 
 @section('title', 'Medicine Detail')
 
 @section('content')
-    <div ng-app="manageMedicine">
+    <div class="container" ng-app="manageMedicine">
         <div ng-controller="detailCtrl">
             <div class="row">
                 <div class="col-md-8">
@@ -91,10 +91,6 @@
     </div>
 @stop
 
-
-@section('javascript')
-    <script type="text/javascript" src="/js/app/directives/form-error.js"></script>
-    <script type="text/javascript" src="/js/app/modules/manage-medicine.js"></script>
-    <script type="text/javascript" src="/js/ui-grid/ui-grid.min.js"></script>
-
+@section('js')
+   @include('medicine.js')
 @stop

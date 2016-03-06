@@ -14,7 +14,7 @@
 @stop
 
 @section('content')
-    <div  ng-app="manageMedicine">
+    <div class="container" ng-app="manageMedicine">
         <div ng-controller="mainCtrl">
             <h2 class="headline">Manage Medicines</h2>
             <div class="row">
@@ -35,9 +35,6 @@
 @stop
 
 
-@section('javascript')
-    <script type="text/javascript" src="/js/app/directives/form-error.js"></script>
-    <script type="text/javascript" src="/js/app/modules/manage-medicine.js"></script>
-    <script type="text/javascript" src="/js/ui-grid/ui-grid.min.js"></script>
-
+@section('js')
+    @include('medicine.js')
 @stop
