@@ -16,35 +16,18 @@
 
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/app/clinic.css" type="text/css">
-    <link rel="stylesheet" href="/css/unify/custom.css">
     <link rel="stylesheet" href="/css/unify/style.css">
-    <link rel="stylesheet" href="/css/unify/headers/header-default.css">
+    <link rel="stylesheet" href="/css/app/clinic.css">
+    <link rel="stylesheet" href="/css/unify/page_log_reg_v2.css">
+    <link rel="stylesheet" href="/css/unify/line-icons/line-icons.css">
+    <link rel="stylesheet" href="/css/unify/font-awesome/css/font-awesome.min.css">
 
         @yield('css')
 </head>
 <body id="app-layout">
-    <div class="wrapper">
-
-        <div class="header">
-            <div class="container">
-                <!-- Logo -->
-                <a class="logo" href="/">
-                    <img src="/images/logo1-default.png" alt="Logo">
-                </a>
-                <!-- End Logo -->
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="fa fa-bars"></span>
-                </button>
-            </div><!--/end container-->
-            <div style="margin-bottom: 40px"></div>
-        </div>
-        <div class="container content">
-            @yield('content')
-        </div>
-    </div><!--/wrapper-->
-
+    <div class="container content">
+        @yield('content')
+    </div>
 
     <!-- JavaScripts -->
     <script type="text/javascript" src="/js/jquery/jquery.min.js"></script>

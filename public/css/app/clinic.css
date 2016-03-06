@@ -38,3 +38,17 @@ form label {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+.register-block {
+    width: 380px;
+    padding: 20px;
+    margin: 60px auto;
+    background: #fff;
+    border-top: solid 2px #72c02c;
+}
+
+.register-block-header {
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    border-bottom: solid 1px #eee;
+}
