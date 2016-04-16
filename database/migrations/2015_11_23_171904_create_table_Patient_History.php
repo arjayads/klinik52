@@ -15,11 +15,12 @@ class CreateTablePatientHistory extends Migration
         Schema::create('PatientHistory', function (Blueprint $table) {
             $table->increments('id')->index();
             $table->unsignedInteger('FK_patientId');
-            $table->unsignedInteger('FK_doctorId')->nullable();
-            $table->unsignedInteger('FK_diseaseId')->nullable();
+            $table->unsignedInteger('FK_clinicId');
+            $table->unsignedInteger('FK_doctorId');
+            $table->text('disease');
+            $table->text('diagnosis');
             $table->date('checkupDate');
             $table->time('checkupTime');
-            $table->text('diagnosis');
             $table->timestamp('createdAt')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updatedAt')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

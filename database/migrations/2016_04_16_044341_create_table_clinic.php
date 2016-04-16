@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTablePatientQueue extends Migration
+class CreateTableClinic extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,12 @@ class CreateTablePatientQueue extends Migration
      */
     public function up()
     {
-        Schema::create('PatientQueue', function (Blueprint $table) {
+        Schema::create('Clinic', function (Blueprint $table) {
             $table->increments('id')->index();
-            $table->unsignedInteger('FK_patientId');
-            $table->unsignedInteger('FK_clinicId');
+            $table->string('name');
+            $table->string('address');
             $table->timestamp('createdAt')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updatedAt')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 
@@ -27,6 +28,6 @@ class CreateTablePatientQueue extends Migration
      */
     public function down()
     {
-        Schema::drop('PatientQueue');
+        Schema::drop('Clinic');
     }
 }
