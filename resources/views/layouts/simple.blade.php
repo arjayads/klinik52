@@ -15,12 +15,12 @@
         <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
 
     <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/unify/style.css">
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/css/app/clinic.css">
-    <link rel="stylesheet" href="/css/unify/page_log_reg_v2.css">
-    <link rel="stylesheet" href="/css/unify/line-icons/line-icons.css">
-    <link rel="stylesheet" href="/css/unify/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/pages/page_log_reg_v2.css">
+    <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
 
         @yield('css')
 </head>
@@ -30,8 +30,8 @@
     </div>
 
     <!-- JavaScripts -->
-    <script type="text/javascript" src="/js/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
     <script>
@@ -43,9 +43,9 @@
     </script>
 
     <!--[if lt IE 9]>
-    <script src="/js/unify/respond.js"></script>
-    <script src="/js/unify/html5shiv.js"></script>
-    <script src="/js/unify/placeholder-IE-fixes.js"></script>
+    <script src="/assets/plugins/respond.js"></script>
+    <script src="/assets/plugins/html5shiv.js"></script>
+    <script src="/assets/plugins/placeholder-IE-fixes.js"></script>
     <![endif]-->
 
     @yield('js')
