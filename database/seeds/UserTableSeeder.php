@@ -15,6 +15,7 @@ class UserTableSeeder extends Seeder
         $admin->name = 'Admin';
         $admin->email = 'admin@klinik52.clinic';
         $admin->password = bcrypt('yEHi1Zzggak3ZRns');
+        $admin->FK_clinicId = 1;
         $admin->save();
         $admin->attachRole(1);
 
@@ -22,6 +23,7 @@ class UserTableSeeder extends Seeder
         $doctor->name = 'Doctor Doom';
         $doctor->email = 'doom@klinik52.clinic';
         $doctor->password = bcrypt('BP8vFbgeZ57oXu1P');
+        $doctor->FK_clinicId = 1;
         $doctor->save();
         $doctor->attachRole(2);
 
@@ -29,6 +31,7 @@ class UserTableSeeder extends Seeder
         $clerk->name = 'Mr Clerk';
         $clerk->email = 'clerk@klinik52.clinic';
         $clerk->password = bcrypt('uJh4GzwwzDbdugUb');
+        $clerk->FK_clinicId = 1;
         $clerk->save();
         $clerk->attachRole(3);
     }
